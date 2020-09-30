@@ -1,0 +1,54 @@
+<!--
+  Generated template for the NewUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registration</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="formgroup" >
+    <ion-item >
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" formControlName="name" [(ngModel)]="name" ></ion-input>
+    </ion-item>
+    
+    
+    <ion-item >
+      <ion-label floating>Password</ion-label>
+      <ion-input type="text" formControlName="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!formgroup.controls.password.valid && password.touched">
+        <p> *Password should be of min 6 digits<br/>
+        </p>
+      </ion-item>
+
+
+    <ion-item >
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" formControlName="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!formgroup.controls.email.valid && email.touched">
+        <p> *Invalid Email</p>
+      </ion-item>
+
+
+    <ion-item >
+      <ion-label floating>Mobile Number</ion-label>
+      <ion-input type="number" formControlName="number" [(ngModel)]="number"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!formgroup.controls.number.valid && number.touched">
+        <p> *Mobile Number should be of 10 digits</p>
+      </ion-item>
+
+
+    <button ion-button class="button" (click)="store()">Register</button>
+  
+</form>
+
+</ion-content>

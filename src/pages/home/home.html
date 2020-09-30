@@ -1,14 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      SignUp App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v3">docs</a> will be your guide.
-  </p>
+
+  <form [formGroup]="userLogin">
+    
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!userLogin.controls.email.valid && email.touched">
+      <p>Enter a valid Email</p>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!userLogin.controls.password.valid && password.touched">
+      <p>Password is incorrect</p>
+    </ion-item>
+  </form>
+
+  <button ion-button round (click)="log()">Log In</button>
+  <button ion-button round  (click)="GoTo()">Sign Up</button>
+
 </ion-content>
